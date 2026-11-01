@@ -1,0 +1,250 @@
+/* 全局样式：由小程序 app.wxss 迁移，rpx 按 750 设计稿换算为 px（1rpx = 0.5px） */
+
+:root {
+  --primary-color: #1a1a1a;
+  --bg-color: #faf9f6;
+  --secondary-bg: #ffffff;
+  --text-main: #1a1a1a;
+  --text-secondary: #8e8e93;
+  --border-radius-lg: 12px;
+  --border-radius-md: 8px;
+  --border-radius-sm: 4px;
+  --spacing-main: 16px;
+  --apple-gray: #8e8e93;
+  --apple-light-gray: #f2f2f7;
+  --max-content-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Segoe UI, Arial,
+    Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+  color: var(--text-main);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-main);
+}
+
+/* 排版 */
+.h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+.h2 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+.h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+.body {
+  font-size: 14px;
+  color: var(--text-main);
+}
+.caption {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* 通用组件 */
+.card {
+  background-color: var(--secondary-bg);
+  border-radius: var(--border-radius-lg);
+  padding: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--border-radius-lg);
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+.btn-primary:hover {
+  opacity: 0.85;
+}
+
+.btn-secondary {
+  background-color: var(--apple-light-gray);
+  color: var(--text-main);
+  border: none;
+  border-radius: var(--border-radius-lg);
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: 600;
+}
+.btn-secondary:hover {
+  opacity: 0.85;
+}
+
+/* 商品网格（响应式） */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+/* ---------------- wx 兼容层 UI ---------------- */
+
+#wx-ui-layer .wx-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.78);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  z-index: 9999;
+  max-width: 70vw;
+  text-align: center;
+}
+
+#wx-ui-layer .wx-loading-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+}
+#wx-ui-layer .wx-loading {
+  background: rgba(0, 0, 0, 0.78);
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+.wx-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: wx-spin 0.8s linear infinite;
+}
+@keyframes wx-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#wx-ui-layer .wx-modal-mask,
+#wx-ui-layer .wx-actionsheet-mask {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9997;
+}
+#wx-ui-layer .wx-modal {
+  background: #fff;
+  border-radius: 12px;
+  width: 320px;
+  max-width: 86vw;
+  overflow: hidden;
+}
+.wx-modal-title {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  padding: 20px 20px 8px;
+}
+.wx-modal-content {
+  font-size: 14px;
+  color: #555;
+  text-align: center;
+  padding: 0 20px 20px;
+}
+.wx-modal-actions {
+  display: flex;
+  border-top: 1px solid #eee;
+}
+.wx-modal-btn {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 12px;
+  font-size: 15px;
+}
+.wx-modal-btn.confirm {
+  color: #007aff;
+  font-weight: 600;
+}
+.wx-modal-btn.cancel {
+  color: #666;
+  border-right: 1px solid #eee;
+}
+
+#wx-ui-layer .wx-actionsheet-mask {
+  align-items: flex-end;
+}
+#wx-ui-layer .wx-actionsheet {
+  width: 100%;
+  background: #f7f7f7;
+  padding: 8px;
+}
+.wx-actionsheet-item {
+  display: block;
+  width: 100%;
+  border: none;
+  background: #fff;
+  padding: 14px;
+  font-size: 15px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+}
+.wx-actionsheet-item.cancel {
+  color: #666;
+  font-weight: 600;
+}
